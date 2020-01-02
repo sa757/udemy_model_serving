@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="301da3fc-5eac-4397-90ee-dabdb5d2053f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_api/tests/differential_tests/test_differential.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_api/tests/differential_tests/test_differential.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
