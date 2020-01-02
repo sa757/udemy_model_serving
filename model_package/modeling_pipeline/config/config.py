@@ -1,73 +1,74 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Dec 26 10:07:07 2019
-
-@author: kim85
-"""
-
 import os
 import pathlib
-import zipfile
-import modeling_pipeline
 
+import modeling_pipeline
+import zipfile
 import pandas as pd
+
 
 pd.options.display.max_rows = 10
 pd.options.display.max_columns = 10
 
+
 PACKAGE_ROOT = pathlib.Path(modeling_pipeline.__file__).resolve().parent
 TRAINED_MODEL_DIR = PACKAGE_ROOT / 'trained_models'
 DATASET_DIR = PACKAGE_ROOT / 'datasets'
-ZIPFILE_DIR = DATASET_DIR / 'kaggle_house_price.zip'
 
-with zipfile.ZipFile(ZIPFILE_DIR, 'r') as f:
-    f.extractall(DATASET_DIR)
+with zipfile.ZipFile(DATASET_DIR, 'r') as zip_ref:
+    zip_ref.extractall(DATASET_DIR)
 
-TRAINING_DATA_FILE = 'train.csv'
+# data
 TESTING_DATA_FILE = 'test.csv'
+TRAINING_DATA_FILE = 'train.csv'
 TARGET = 'SalePrice'
 
-PIPELINE_NAME = 'lasso_model'
-PIPELINE_SAVE_FILE = f'{PIPELINE_NAME}_pipeline_v'
 
-FEATURES = [
-        'MSSubClass', 'MSZoning', 'Neighborhood', 'OverallQual', 
-        'OverallCond', 'YearRemodAdd', 'RoofStyle', 'MasVnrType', 
-        'BsmtQual', 'BsmtExposure', 'HeatingQC', 'CentralAir', 
-        '1stFlrSF', 'GrLivArea', 'BsmtFullBath', 'KitchenQual', 
-        'Fireplaces', 'FireplaceQu', 'GarageType', 'GarageFinish', 
-        'GarageCars', 'PavedDrive', 'LotFrontage'
-        ]
+# variables
+FEATURES = ['MSSubClass', 'MSZoning', 'Neighborhood',
+            'OverallQual', 'OverallCond', 'YearRemodAdd',
+            'RoofStyle', 'MasVnrType', 'BsmtQual', 'BsmtExposure',
+            'HeatingQC', 'CentralAir', '1stFlrSF', 'GrLivArea',
+            'BsmtFullBath', 'KitchenQual', 'Fireplaces', 'FireplaceQu',
+            'GarageType', 'GarageFinish', 'GarageCars', 'PavedDrive',
+            'LotFrontage',
+            # this one is only to calculate temporal variable:
+            'YrSold']
 
-CATEGORICAL_VARS_WITH_NA = ['MasVnrType', 'BsmtQual', 'BsmtExposure', 
-                            'FireplaceQu', 'GarageType', 'GarageFinish']
+# this variable is to calculate the temporal variable,
+# can be dropped afterwards
+DROP_FEATURES = 'YrSold'
+
+# numerical variables with NA in train set
 NUMERICAL_VARS_WITH_NA = ['LotFrontage']
 
-CATEGOCIAL_VARS = [
-        'MSZoning', 'Neighborhood', 'RoofStyle', 'MasVnrType', 'BsmtQual', 
-        'BsmtExposure', 'HeatingQC', 'CentralAir', 'KitchenQual', 
-        'FireplaceQu', 'GarageType', 'GarageFinish', 'PavedDrive'
-        ]
+# categorical variables with NA in train set
+CATEGORICAL_VARS_WITH_NA = ['MasVnrType', 'BsmtQual', 'BsmtExposure',
+                            'FireplaceQu', 'GarageType', 'GarageFinish']
 
-TEMPORAL_VARS = ['YearRemodAdd']
-REFERENCE_VAR = 'YrSold'
+TEMPORAL_VARS = 'YearRemodAdd'
 
-DROP_VARS =[
-        'Foundation', 'HalfBath', 'Id', '3SsnPorch', 'KitchenAbvGr', 
-        'BsmtFinSF1', 'HouseStyle', 'SaleCondition', 'ExterQual', 
-        'TotRmsAbvGrd', 'Utilities', 'Condition2', 'Street', 'Electrical', 
-        'Exterior2nd', 'Fence', 'BldgType', 'RoofMatl', 'MoSold', 'BsmtCond',
-        'BsmtUnfSF', 'SaleType', 'BedroomAbvGr', 'MiscFeature', 'Functional', 
-        'LandSlope', 'Heating', 'BsmtFinSF2', 'LotShape', 'Exterior1st', 
-        'GarageQual', 'OpenPorchSF', 'ScreenPorch', 'PoolQC', 'YrSold', 
-        'LandContour', 'YearBuilt', 'ExterCond', 'LotArea', 'GarageCond', 
-        'GarageArea', 'LowQualFinSF', 'BsmtFinType2', 'BsmtHalfBath', 
-        'TotalBsmtSF', 'GarageYrBlt', 'FullBath', 'PoolArea', 'LotConfig', 
-        '2ndFlrSF', 'BsmtFinType1', 'Condition1', 'WoodDeckSF', 'MasVnrArea', 
-        'Alley', 'MiscVal', 'EnclosedPorch']
+# variables to log transform
+NUMERICALS_LOG_VARS = ['LotFrontage', '1stFlrSF', 'GrLivArea']
 
-LOG_VARS = ['LotFrontage', '1stFlrSF', 'GrLivArea', 'SalePrice']
+# categorical variables to encode
+CATEGORICAL_VARS = ['MSZoning', 'Neighborhood', 'RoofStyle', 'MasVnrType',
+                    'BsmtQual', 'BsmtExposure', 'HeatingQC', 'CentralAir',
+                    'KitchenQual', 'FireplaceQu', 'GarageType', 'GarageFinish',
+                    'PavedDrive']
 
+NUMERICAL_NA_NOT_ALLOWED = [
+    feature for feature in FEATURES
+    if feature not in CATEGORICAL_VARS + NUMERICAL_VARS_WITH_NA
+]
 
+CATEGORICAL_NA_NOT_ALLOWED = [
+    feature for feature in CATEGORICAL_VARS
+    if feature not in CATEGORICAL_VARS_WITH_NA
+]
 
 
+PIPELINE_NAME = 'lasso_regression'
+PIPELINE_SAVE_FILE = f'{PIPELINE_NAME}_output_v'
+
+# used for differential testing
+ACCEPTABLE_MODEL_DIFFERENCE = 0.05
