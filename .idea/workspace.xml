@@ -3,18 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="301da3fc-5eac-4397-90ee-dabdb5d2053f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_package/modeling_pipeline/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/config/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_package/modeling_pipeline/config/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/config/logging_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_package/modeling_pipeline/config/logging_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/datasets/test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/datasets/train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_package/modeling_pipeline/pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_package/modeling_pipeline/predict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/processing/data_manager.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/processing/pipe_elements.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/processing/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_package/modeling_pipeline/processing/validation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/train_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_package/modeling_pipeline/train_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model_package/modeling_pipeline/trained_models/lasso_model_pipeline_v1.0.0.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_package/tests/test_predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_package/tests/test_predict.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +29,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
@@ -197,22 +188,22 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1368" y="178" key="#Inspections/0.0.1920.1040/1920.-509.1080.1880/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1577936785177" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1577939828188">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1577941133149">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-509.1080.1880/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1577939828188" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1577939828188">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-509.1080.1880/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1577941133149" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1577941133149">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-509.1080.1880/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1577939828188" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1577939828187">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-509.1080.1880/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1577941133149" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1577941133149">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-509.1080.1880/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1577939828187" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1577939828188">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-509.1080.1880/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1577941133149" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1577941133149">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-509.1080.1880/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1577939828188" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-509.1080.1880/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1577941133149" />
     <state x="-1459" y="161" key="SettingsEditor" timestamp="1577926818318">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
