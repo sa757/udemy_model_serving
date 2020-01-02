@@ -1,7 +1,7 @@
 import json
 
-from regression_model.config import config
-from regression_model.processing.data_management import load_dataset
+from modeling_pipeline.config import config
+from modeling_pipeline.processing.data_management import load_dataset
 
 
 def test_prediction_endpoint_validation_200(flask_test_client):

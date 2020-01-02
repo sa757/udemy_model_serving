@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
-from regression_model.predict import make_prediction
-from regression_model import __version__ as _version
-from neural_network_model.predict import make_single_prediction
+from modeling_pipeline.predict import make_prediction
+from modeling_pipeline import __version__ as _version
+# from neural_network_model.predict import make_single_prediction
 import os
 from werkzeug.utils import secure_filename
 
@@ -53,37 +53,37 @@ def predict():
                         'errors': errors})
 
 
-@prediction_app.route('/predict/classifier', methods=['POST'])
-def predict_image():
-    if request.method == 'POST':
-        # Step 1: check if the post request has the file part
-        if 'file' not in request.files:
-            return jsonify('No file found'), 400
-
-        file = request.files['file']
-
-        # Step 2: Basic file extension validation
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-
-            # Step 3: Save the file
-            # Note, in production, this would require careful
-            # validation, management and clean up.
-            file.save(os.path.join(UPLOAD_FOLDER, filename))
-
-            _logger.debug(f'Inputs: {filename}')
-
-            # Step 4: perform prediction
-            result = make_single_prediction(
-                image_name=filename,
-                image_directory=UPLOAD_FOLDER)
-
-            _logger.debug(f'Outputs: {result}')
-
-        readable_predictions = result.get('readable_predictions')
-        version = result.get('version')
-
-        # Step 5: Return the response as JSON
-        return jsonify(
-            {'readable_predictions': readable_predictions[0],
-             'version': version})
+# @prediction_app.route('/predict/classifier', methods=['POST'])
+# def predict_image():
+#     if request.method == 'POST':
+#         # Step 1: check if the post request has the file part
+#         if 'file' not in request.files:
+#             return jsonify('No file found'), 400
+#
+#         file = request.files['file']
+#
+#         # Step 2: Basic file extension validation
+#         if file and allowed_file(file.filename):
+#             filename = secure_filename(file.filename)
+#
+#             # Step 3: Save the file
+#             # Note, in production, this would require careful
+#             # validation, management and clean up.
+#             file.save(os.path.join(UPLOAD_FOLDER, filename))
+#
+#             _logger.debug(f'Inputs: {filename}')
+#
+#             # Step 4: perform prediction
+#             result = make_single_prediction(
+#                 image_name=filename,
+#                 image_directory=UPLOAD_FOLDER)
+#
+#             _logger.debug(f'Outputs: {result}')
+#
+#         readable_predictions = result.get('readable_predictions')
+#         version = result.get('version')
+#
+#         # Step 5: Return the response as JSON
+#         return jsonify(
+#             {'readable_predictions': readable_predictions[0],
+#              'version': version})

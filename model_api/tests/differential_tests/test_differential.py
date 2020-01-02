@@ -1,8 +1,8 @@
 import math
 
-from regression_model.config import config as model_config
-from regression_model.predict import make_prediction
-from regression_model.processing.data_management import load_dataset
+from modeling_pipeline.config import config as model_config
+from modeling_pipeline.predict import make_prediction
+from modeling_pipeline.processing.data_management import load_dataset
 import pandas as pd
 import pytest
 
