@@ -20,4 +20,4 @@ workflows:
   version: 2
   test-all:
     jobs:
-      - test_custom_model
+      - test_regression_model
