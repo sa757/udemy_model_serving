@@ -9,7 +9,7 @@ from setuptools import find_packages, setup
 
 
 # Package meta-data.
-NAME = 'custom_ml_model'
+NAME = 'modeling_pipeline'
 DESCRIPTION = 'Train and deploy custom model.'
 URL = 'https://github.com/sa757/udemy_model_serving'
 EMAIL = 'kim850414@gmail.com'
@@ -61,7 +61,7 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages(exclude=('tests',)),
-    package_data={'regression_model': ['VERSION']},
+    package_data={'modeling_pipeline': ['VERSION']},
     install_requires=list_reqs(),
     extras_require={},
     include_package_data=True,
