@@ -118,13 +118,13 @@ def validate_inputs(input_data):
     """Check prediction inputs against schema."""
 
     # set many=True to allow passing in a list
-    schema = HouseDataRequestSchema(strict=True, many=True)
+    schema = HouseDataRequestSchema(many=True) # strict=True,
 
     # convert syntax error field names (beginning with numbers)
-    for dict in input_data:
+    for idict in input_data:
         for key, value in SYNTAX_ERROR_FIELD_MAP.items():
-            dict[value] = dict[key]
-            del dict[key]
+            idict[value] = idict[key]
+            del idict[key]
 
     errors = None
     try:
@@ -135,10 +135,10 @@ def validate_inputs(input_data):
     # convert syntax error field names back
     # this is a hack - never name your data
     # fields with numbers as the first letter.
-    for dict in input_data:
+    for idict in input_data:
         for key, value in SYNTAX_ERROR_FIELD_MAP.items():
-            dict[key] = dict[value]
-            del dict[value]
+            idict[key] = idict[value]
+            del idict[value]
 
     if errors:
         validated_input = _filter_error_rows(
