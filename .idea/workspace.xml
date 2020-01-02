@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="301da3fc-5eac-4397-90ee-dabdb5d2053f" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="301da3fc-5eac-4397-90ee-dabdb5d2053f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_api/api/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_api/api/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_api/diff_test_requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/model_api/diff_test_requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model_api/tests/differential_tests/test_differential.py" beforeDir="false" afterPath="$PROJECT_DIR$/model_api/tests/differential_tests/test_differential.py" afterDir="false" />
+    </list>
+>>>>>>> a7402348de53d32701994e65bc77c091ab51da5c
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
