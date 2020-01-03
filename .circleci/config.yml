@@ -7,14 +7,14 @@ prepare_venv: &prepare_venv
   run:
     name: Create venv
     command: |
-      python3 -m venv venv1
-      source venv1/bin/activate
+      python3 -m venv venv
+      source venv/bin/activate
       pip install --upgrade pip
 fetch_data: &fetch_data
   run:
     name: Set script permissions and fetch data
     command: |
-      source venv1/bin/activate
+      source venv/bin/activate
       chmod +x ./scripts/fetch_kaggle_dataset.sh
       ./scripts/fetch_kaggle_dataset.sh
 jobs:
@@ -26,18 +26,18 @@ jobs:
       - run:
           name: Install requirements
           command: |
-            . venv1/bin/activate
+            . venv/bin/activate
             pip install -r model_package/requirements.txt
       - *fetch_data
       - run:
           name: Train model
           command: |
-            . venv1/bin/activate
+            . venv/bin/activate
             PYTHONPATH=./model_package python3 ./model_package/modeling_pipeline/train_pipeline.py
       - run:
           name: Run tests
           command: |
-            . venv1/bin/activate
+            . venv/bin/activate
             py.test -vv model_package/tests
   test_ml_api:
     <<: *defaults
@@ -49,15 +49,15 @@ jobs:
       - run:
           name: Runnning tests
           command: |
-            virtualenv venv1
-            . venv1/bin/activate
+            virtualenv venv
+            . venv/bin/activate
             pip install --upgrade pip
             pip install -r model_api/requirements.txt
             py.test -vv model_api/tests
       - save_cache:
           key: py-deps-{{ checksum "model_api/requirements.txt" }}
           paths:
-            - "/venv1"
+            - "/venv"
   train_and_upload_regression_model:
     <<: *defaults
     steps:
@@ -66,18 +66,18 @@ jobs:
       - run:
           name: Install requirements
           command: |
-            . venv1/bin/activate
+            . venv/bin/activate
             pip install -r model_package/requirements.txt
       - *fetch_data
       - run:
           name: Train model
           command: |
-            . venv1/bin/activate
+            . venv/bin/activate
             PYTHONPATH=./model_package python3 model_package/modeling_pipeline/train_pipeline.py
       - run:
           name: Publish model to Gemfury
           command: |
-            . venv1/bin/activate
+            . venv/bin/activate
             chmod +x ./scripts/publish_model.sh
             ./scripts/publish_model.sh ./model_package/
 workflows:
