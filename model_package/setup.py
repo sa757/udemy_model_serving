@@ -9,7 +9,7 @@ from setuptools import find_packages, setup
 
 
 # Package meta-data.
-NAME = 'modeling-pipeline'
+NAME = 'modeling_pipeline'
 DESCRIPTION = 'Train and deploy custom model.'
 URL = 'https://github.com/sa757/udemy_model_serving'
 EMAIL = 'kim850414@gmail.com'
