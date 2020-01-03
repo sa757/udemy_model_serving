@@ -1,0 +1,1 @@
+web: gunicorn --pythonpath model_api --access-logfile - --error-logfile - run:application
