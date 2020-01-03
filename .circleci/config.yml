@@ -13,6 +13,7 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r model_package/requirements.txt
+            cat ./scripts/fetch_kaggle_dataset.sh
             chmod +x ./scripts/fetch_kaggle_dataset.sh
             ./scripts/fetch_kaggle_dataset.sh
             py.test -vv model_package/tests
