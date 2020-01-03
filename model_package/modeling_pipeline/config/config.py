@@ -13,8 +13,8 @@ PACKAGE_ROOT = pathlib.Path(modeling_pipeline.__file__).resolve().parent
 TRAINED_MODEL_DIR = PACKAGE_ROOT / 'trained_models'
 DATASET_DIR = PACKAGE_ROOT / 'datasets'
 
-with zipfile.ZipFile(DATASET_DIR / 'house-prices-advanced-regression-techniques.zip', 'r') as zip_ref:
-    zip_ref.extractall(DATASET_DIR)
+# with zipfile.ZipFile(DATASET_DIR / 'house-prices-advanced-regression-techniques.zip', 'r') as zip_ref:
+#     zip_ref.extractall(DATASET_DIR)
 
 # data
 TESTING_DATA_FILE = 'test.csv'
