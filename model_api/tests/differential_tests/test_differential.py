@@ -9,8 +9,8 @@ import pytest
 from api import config
 
 
-# @pytest.mark.skip
-# @pytest.mark.differential
+@pytest.mark.skip
+@pytest.mark.differential
 def test_model_prediction_differential(*, save_file: str = 'test_data_predictions.csv'):
     """
     This test compares the prediction result similarity of
