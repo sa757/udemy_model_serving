@@ -50,15 +50,14 @@ class Config:
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = '111'
+    SECRET_KEY = 'NEED TO BE UPDATED'
     SERVER_PORT = 5000
     UPLOAD_FOLDER = UPLOAD_FOLDER
 
 
 class ProductionConfig(Config):
     DEBUG = False
-    SERVER_ADDRESS: os.environ.get('SERVER_ADDRESS', '0.0.0.0')
-    SERVER_PORT: os.environ.get('SERVER_PORT', '5000')
+    SERVER_PORT: os.environ.get('PORT', '5000')
 
 
 class DevelopmentConfig(Config):
