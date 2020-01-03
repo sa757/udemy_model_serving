@@ -7,7 +7,7 @@ flask==1.0.2
 marshmallow==2.17.0
 
 # Install from gemfury
-modeling-pipeline==0.1.0
+modeling_pipeline==1.0.0
 
 # Deployment
 gunicorn==19.9.0
