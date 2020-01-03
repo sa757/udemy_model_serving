@@ -116,11 +116,11 @@ jobs:
           docker_layer_caching: true
       - run: docker login --username=$HEROKU_EMAIL --password=$HEROKU_API_KEY registry.heroku.com
       - run:
-          name : Setup Heroku CLT
+          name: Setup Heroku CLI
           command: |
-            wget -q0- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+            wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
       - run:
-          name: Build and Push image
+          name: Build and Push Image
           command: |
             make build-ml-api-heroku push-ml-api-heroku
       - run:
@@ -143,14 +143,17 @@ workflows:
             branches:
               only:
                 - master
+      # - section_10_deploy_to_heroku:
+      #     requires:
+      #       - train_and_upload_regression_model
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
       - section_11_build_and_push_to_heroku_docker:
           requires:
             - train_and_upload_regression_model
           filters:
-      #- section_10_deploy_to_heroku:
-          #requires:
-            #- train_and_upload_regression_model
-          #filters:
-            #branches:
-              #only:
-                #- master
+            branches:
+              only:
+                - master
