@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: modeling-pipeline
-Version: 1.0.1
+Version: 1.0.0
 Summary: Train and deploy custom model.
 Home-page: https://github.com/sa757/udemy_model_serving
 Author: sa757
