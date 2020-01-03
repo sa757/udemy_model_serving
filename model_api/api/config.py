@@ -50,7 +50,7 @@ class Config:
     DEBUG = False
     TESTING = False
     CSRF_ENABLED = True
-    SECRET_KEY = 'this-really-needs-to-be-changed'
+    SECRET_KEY = '111'
     SERVER_PORT = 5000
     UPLOAD_FOLDER = UPLOAD_FOLDER
 
