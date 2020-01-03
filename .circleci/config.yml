@@ -53,7 +53,7 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r model_api/requirements.txt
-#            py.test -vv model_api/tests
+            py.test -vv model_api/tests
       - save_cache:
           key: py-deps-{{ checksum "model_api/requirements.txt" }}
           paths:
@@ -84,12 +84,12 @@ workflows:
   version: 2
   test-all:
     jobs:
-#      - test_regression_model
+      - test_regression_model
       - test_ml_api
-#      - train_and_upload_regression_model:
-#          requires:
-#            - test_regression_model
-#            - test_ml_api
+      - train_and_upload_regression_model:
+          requires:
+            - test_regression_model
+            - test_ml_api
           # filters:
           #   branches:
           #     only:
