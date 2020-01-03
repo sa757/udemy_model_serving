@@ -24,4 +24,4 @@ modeling_pipeline/processing/features.py
 modeling_pipeline/processing/preprocessors.py
 modeling_pipeline/processing/validation.py
 modeling_pipeline/trained_models/__init__.py
-modeling_pipeline/trained_models/lasso_regression_output_v1.0.0.pkl
+modeling_pipeline/trained_models/lasso_regression_output_v1.0.1.pkl
