@@ -110,6 +110,7 @@ venv.bak/
 train.csv
 test.csv
 test_data_predictions.csv
+v2-plant-seedlings-dataset/
 
 # all logs
 logs/
